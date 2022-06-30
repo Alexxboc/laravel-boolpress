@@ -5195,8 +5195,71 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Home'
+  name: "Home",
+  data: function data() {
+    return {
+      posts: ""
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get("/api/posts").then(function (response) {
+      console.log(response);
+      var posts = response.data.data;
+      _this.posts = posts.slice(0, 4);
+    })["catch"](function (e) {
+      console.error(e);
+    });
+  }
 });
 
 /***/ }),
@@ -41745,9 +41808,88 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [_vm._v("Home")])
+  return _c("div", { staticClass: "single-page" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("section", { staticClass: "recent-articles" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("h2", [_vm._v("Recent Articles")]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "row row-cols-3" },
+          _vm._l(_vm.posts, function (post) {
+            return _c("div", { key: post.id, staticClass: "col" }, [
+              _c("div", { staticClass: "card" }, [
+                _c("img", {
+                  attrs: { src: "/storage/" + post.cover_image, alt: "" },
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body" }, [
+                  _c("p", [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(post.content.slice(0, 200) + "...") +
+                        "\n              "
+                    ),
+                  ]),
+                ]),
+              ]),
+            ])
+          }),
+          0
+        ),
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "read_more text-center py-5" },
+        [
+          _c(
+            "router-link",
+            {
+              staticClass: "btn btn-primary",
+              attrs: { to: { name: "posts" } },
+            },
+            [_vm._v("Read More")]
+          ),
+        ],
+        1
+      ),
+    ]),
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "p-5 bg-light" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("h1", { staticClass: "display-3" }, [_vm._v("Boolpress")]),
+        _vm._v(" "),
+        _c("p", { staticClass: "lead" }, [
+          _vm._v(
+            "\n        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione,\n        minima?\n      "
+          ),
+        ]),
+        _vm._v(" "),
+        _c("hr", { staticClass: "my-2" }),
+        _vm._v(" "),
+        _c("p", { staticClass: "lead" }, [
+          _c(
+            "a",
+            {
+              staticClass: "btn btn-primary btn-lg",
+              attrs: { href: "Jumbo action link", role: "button" },
+            },
+            [_vm._v("Jumbo action name")]
+          ),
+        ]),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 
@@ -57793,6 +57935,10 @@ var routes = [{
   path: '/posts',
   component: _Pages_Posts__WEBPACK_IMPORTED_MODULE_4__["default"],
   name: 'posts'
+}, {
+  path: '/posts/:slug',
+  component: Post,
+  name: 'post'
 }]; // 3. Create the router instance and pass the `routes` option
 // You can pass in additional options here, but let's
 // keep it simple for now.

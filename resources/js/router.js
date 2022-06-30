@@ -19,7 +19,8 @@ import Posts from './Pages/Posts'
 const routes = [
     { path: '/', component: Home, name: 'home' },
     { path: '/about', component: About, name: 'about' },
-    { path: '/posts', component: Posts, name: 'posts' }
+    { path: '/posts', component: Posts, name: 'posts' },
+    { path: '/posts/:slug', component: Post, name: 'post' }
 ]
 
 // 3. Create the router instance and pass the `routes` option
