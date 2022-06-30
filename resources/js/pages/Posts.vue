@@ -120,5 +120,56 @@
 <script>
 export default {
   name: "Posts",
+  data() {
+    return {
+      postsResponse: "",
+      categoriesResponse: "",
+      tagsResponse: "",
+    };
+  },
+  methods: {
+    getAllPosts(postPage) {
+      axios
+        .get("/api/posts", {
+          params: {
+            page: postPage,
+          },
+        })
+        .then((response) => {
+          //console.log(response);
+          this.postsResponse = response.data;
+        })
+        .catch((e) => {
+          console.error(e);
+        });
+    },
+    getAllCategories() {
+      axios
+        .get("/api/categories")
+        .then((response) => {
+          console.log(response);
+          this.categoriesResponse = response.data;
+        })
+        .catch((e) => {
+          console.error(e);
+        });
+    },
+    getAllTags() {
+      axios
+        .get("/api/tags")
+        .then((response) => {
+          console.log(response);
+          this.tagsResponse = response.data;
+        })
+        .catch((e) => {
+          console.error(e);
+        });
+    },
+  },
+  mounted() {
+    this.getAllPosts(1);
+    this.getAllCategories();
+    this.getAllTags();
+  },
 };
 </script>

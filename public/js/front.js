@@ -5114,8 +5114,70 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'About'
+  name: "About"
 });
 
 /***/ }),
@@ -5268,7 +5330,55 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Posts"
+  name: "Posts",
+  data: function data() {
+    return {
+      postsResponse: "",
+      categoriesResponse: "",
+      tagsResponse: ""
+    };
+  },
+  methods: {
+    getAllPosts: function getAllPosts(postPage) {
+      var _this = this;
+
+      axios.get("/api/posts", {
+        params: {
+          page: postPage
+        }
+      }).then(function (response) {
+        //console.log(response);
+        _this.postsResponse = response.data;
+      })["catch"](function (e) {
+        console.error(e);
+      });
+    },
+    getAllCategories: function getAllCategories() {
+      var _this2 = this;
+
+      axios.get("/api/categories").then(function (response) {
+        console.log(response);
+        _this2.categoriesResponse = response.data;
+      })["catch"](function (e) {
+        console.error(e);
+      });
+    },
+    getAllTags: function getAllTags() {
+      var _this3 = this;
+
+      axios.get("/api/tags").then(function (response) {
+        console.log(response);
+        _this3.tagsResponse = response.data;
+      })["catch"](function (e) {
+        console.error(e);
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getAllPosts(1);
+    this.getAllCategories();
+    this.getAllTags();
+  }
 });
 
 /***/ }),
@@ -41596,11 +41706,19 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("p", { staticClass: "lead" }, [
             _vm._v(
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, voluptatibus!"
+              "\n        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate,\n        voluptatibus!\n      "
             ),
           ]),
           _vm._v(" "),
           _c("hr", { staticClass: "my-2" }),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "content container" }, [
+        _c("p", [
+          _vm._v(
+            "\n      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea distinctio\n      esse eius necessitatibus corporis quos. Unde commodi nulla odit natus,\n      vero inventore expedita, tempore deleniti a voluptatibus, deserunt quam\n      id quaerat repellat vel officia veniam repudiandae molestias. Dolorem\n      est architecto possimus doloremque nemo accusamus itaque quidem, quis\n      deserunt, ea sint eveniet labore, autem quibusdam expedita blanditiis\n      perferendis dolor animi pariatur beatae molestiae! Aliquid illo pariatur\n      obcaecati sequi recusandae totam perferendis illum qui. Sit natus modi\n      explicabo eligendi atque voluptate? Ratione dolores est nobis\n      voluptatibus facere omnis rerum vitae corrupti animi qui laborum impedit\n      dolore, minima amet accusamus voluptates repellendus, ad consectetur\n      harum ab eius nostrum quam quidem. Deleniti impedit atque excepturi\n      ratione quidem veniam accusantium. Laboriosam suscipit dolores ad\n      repudiandae quae repellendus eius aut blanditiis nisi? Quas, assumenda\n      aperiam! Molestias, officia pariatur eligendi corrupti quidem fugit\n      dignissimos possimus ex vero minima reiciendis eum quod voluptas\n      deleniti placeat aperiam nostrum a non voluptate, excepturi, soluta qui\n      corporis voluptatum recusandae. A itaque, voluptate doloremque\n      voluptates iure est eius odio veritatis? Veritatis soluta explicabo\n      mollitia molestias, fuga magnam vero dolore quia asperiores nemo\n      aliquid, in obcaecati dignissimos, voluptas expedita quisquam nesciunt?\n      Nesciunt, totam facere veritatis nulla hic sapiente iusto consequatur\n      quisquam eum dolorum distinctio unde, fugiat voluptate corporis, harum\n      modi nemo quaerat? Molestiae doloremque esse aspernatur ipsa natus\n      corporis hic, fuga perferendis numquam harum atque laborum vel itaque.\n      Sapiente, incidunt id nam animi autem eos laboriosam sed aut earum, in\n      quisquam! Fuga deserunt commodi voluptas, repudiandae totam quibusdam\n      expedita dolorem mollitia quam ea sit quasi voluptatem quos repellat\n      eligendi beatae laborum repellendus vitae, quisquam eum cupiditate.\n      Debitis, itaque obcaecati! Quas esse autem placeat neque sequi\n      asperiores itaque maiores commodi, nesciunt ad iste ex debitis, aliquam\n      ipsum temporibus consequuntur odio aut provident fugit repudiandae harum\n      minima maxime. Numquam molestias eaque, eius fugit nihil culpa magnam\n      quos, a suscipit eos vel tempora blanditiis quam accusamus sapiente\n      reprehenderit repellat provident, dolor obcaecati sequi reiciendis porro\n      sunt quia. Eos totam sit, accusantium quas ipsa quos voluptate facere\n      excepturi alias dolor vel culpa adipisci, earum, ipsam necessitatibus\n      nulla nemo similique quidem fuga? Vitae in delectus quas ipsa esse!\n      Nulla nihil sint officia, amet at rem consectetur est veniam omnis quae\n      natus atque quia quasi fugiat corrupti dolorum autem, tempore ea illo\n      corporis reiciendis, explicabo neque quas? Quasi soluta error officiis\n      in nulla, perspiciatis quas doloribus molestiae velit ducimus quam,\n      totam cumque ipsa corrupti adipisci animi debitis dicta laudantium vero\n      optio? Iste similique sunt quis dolorem delectus. Labore optio\n      architecto itaque omnis deleniti aperiam! Dolores vel in voluptatem\n      cumque asperiores praesentium ducimus fugiat, quos, aperiam\n      consequuntur, minima exercitationem similique doloremque temporibus\n      perferendis eveniet. Odit delectus architecto doloremque aperiam\n      necessitatibus sequi error perspiciatis similique possimus? Dolores\n      dolore praesentium quisquam cupiditate quos molestiae excepturi minima,\n      ipsa magni ut tempora sit temporibus, culpa dignissimos consectetur\n      perspiciatis laboriosam fugit incidunt mollitia nemo. Perspiciatis ullam\n      quaerat at deserunt doloremque quo quia deleniti saepe doloribus dolores\n      vitae, distinctio omnis velit. Iste consequatur saepe, tenetur cumque\n      nulla enim cupiditate minima quibusdam, totam autem est quam porro.\n    "
+          ),
         ]),
       ]),
     ])

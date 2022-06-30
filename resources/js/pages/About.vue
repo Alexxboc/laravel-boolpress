@@ -10,7 +10,7 @@
         <hr class="my-2" />
       </div>
     </div>
-    <div class="content">
+    <div class="content container">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea distinctio
         esse eius necessitatibus corporis quos. Unde commodi nulla odit natus,
