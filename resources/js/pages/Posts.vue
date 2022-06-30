@@ -1,7 +1,8 @@
 <template>
   <div class="single-page">
-    <h1>Posts</h1>
+    
     <div class="container-fluid">
+      <h1 class="text-center py-5">All Posts</h1>
       <div class="row">
         <div class="col-10">
           <section class="posts">

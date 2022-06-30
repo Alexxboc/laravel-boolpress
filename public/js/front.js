@@ -5480,6 +5480,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Posts",
   data: function data() {
@@ -42122,9 +42123,9 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "single-page" }, [
-    _c("h1", [_vm._v("Posts")]),
-    _vm._v(" "),
     _c("div", { staticClass: "container-fluid" }, [
+      _c("h1", { staticClass: "text-center" }, [_vm._v("All Posts")]),
+      _vm._v(" "),
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-10" }, [
           _c("section", { staticClass: "posts" }, [
