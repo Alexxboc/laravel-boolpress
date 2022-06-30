@@ -5166,8 +5166,51 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "App"
+  name: "App",
+  data: function data() {
+    return {
+      menu_items: [{
+        route_name: 'home',
+        route_text: 'Home'
+      }, {
+        route_name: 'about',
+        route_text: 'About'
+      }, {
+        route_name: 'posts',
+        route_text: 'Posts'
+      }]
+    };
+  }
 });
 
 /***/ }),
@@ -41488,9 +41531,93 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("router-view")
+  return _c("div", [
+    _c("header", [
+      _c(
+        "nav",
+        {
+          staticClass:
+            "navbar navbar-expand-md navbar-light bg-white shadow-sm",
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "container" },
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "navbar-brand",
+                  attrs: { to: { name: "home" } },
+                },
+                [_vm._v("\n               Boolpress\n            ")]
+              ),
+              _vm._v(" "),
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "collapse navbar-collapse",
+                  attrs: { id: "navbarSupportedContent" },
+                },
+                [
+                  _c(
+                    "ul",
+                    { staticClass: "navbar-nav mr-auto" },
+                    _vm._l(_vm.menu_items, function (item) {
+                      return _c(
+                        "li",
+                        { key: item.id, staticClass: "nav-item" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "nav-link",
+                              attrs: { to: { name: item.route_name } },
+                            },
+                            [_vm._v(_vm._s(item.route_text))]
+                          ),
+                        ],
+                        1
+                      )
+                    }),
+                    0
+                  ),
+                ]
+              ),
+            ],
+            1
+          ),
+        ]
+      ),
+    ]),
+    _vm._v(" "),
+    _c("main", [_c("router-view")], 1),
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "navbar-toggler",
+        attrs: {
+          type: "button",
+          "data-toggle": "collapse",
+          "data-target": "#navbarSupportedContent",
+          "aria-controls": "navbarSupportedContent",
+          "aria-expanded": "false",
+          "aria-label": "Toggle navigation",
+        },
+      },
+      [_c("span", { staticClass: "navbar-toggler-icon" })]
+    )
+  },
+]
 render._withStripped = true
 
 
@@ -57192,13 +57319,16 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 
 var routes = [{
   path: '/',
-  component: _Pages_Home__WEBPACK_IMPORTED_MODULE_2__["default"]
+  component: _Pages_Home__WEBPACK_IMPORTED_MODULE_2__["default"],
+  name: 'home'
 }, {
   path: '/about',
-  component: _Pages_About__WEBPACK_IMPORTED_MODULE_3__["default"]
+  component: _Pages_About__WEBPACK_IMPORTED_MODULE_3__["default"],
+  name: 'about'
 }, {
   path: '/posts',
-  component: _Pages_Posts__WEBPACK_IMPORTED_MODULE_4__["default"]
+  component: _Pages_Posts__WEBPACK_IMPORTED_MODULE_4__["default"],
+  name: 'posts'
 }]; // 3. Create the router instance and pass the `routes` option
 // You can pass in additional options here, but let's
 // keep it simple for now.

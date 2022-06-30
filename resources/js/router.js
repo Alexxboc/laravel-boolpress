@@ -17,9 +17,9 @@ import Posts from './Pages/Posts'
 // `Vue.extend()`, or just a component options object.
 // We'll talk about nested routes later.
 const routes = [
-    { path: '/', component: Home },
-    { path: '/about', component: About },
-    { path: '/posts', component: Posts }
+    { path: '/', component: Home, name: 'home' },
+    { path: '/about', component: About, name: 'about' },
+    { path: '/posts', component: Posts, name: 'posts' }
 ]
 
 // 3. Create the router instance and pass the `routes` option
