@@ -8,6 +8,7 @@ Vue.use(VueRouter)
 import Home from './Pages/Home'
 import About from './Pages/About'
 import Posts from './Pages/Posts'
+import Post from "./Pages/Post";
 // These can be imported from other files
 
 

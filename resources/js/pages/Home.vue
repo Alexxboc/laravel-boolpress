@@ -30,6 +30,7 @@
                 <p>
                   {{ post.content.slice(0, 200) + "..." }}
                 </p>
+                <router-link :to="{ name: 'post', params: {slug: post.slug}}">Read more</router-link>
               </div>
               <!-- /.card-body -->
             </div>
