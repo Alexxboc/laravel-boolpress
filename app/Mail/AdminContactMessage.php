@@ -10,15 +10,15 @@ use Illuminate\Queue\SerializesModels;
 class AdminContactMessage extends Mailable
 {
     use Queueable, SerializesModels;
-
+    public $message;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($message)
     {
-        //
+        $this->message = $message;
     }
 
     /**
@@ -28,6 +28,8 @@ class AdminContactMessage extends Mailable
      */
     public function build()
     {
-        return $this->markdown('mail.markdown.admin.contact-message');
+        return $this
+        ->subject('You recived a new message from the blog')
+        ->markdown('mail.markdown.admin.contact-message');
     }
 }

@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::post('contact-form', 'MessageController@show');
+Route::post('contact-form', 'MessageController@store');
 Route::get('contact-form', 'MessageController@index');
 
 Auth::routes();
