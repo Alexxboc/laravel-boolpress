@@ -5389,8 +5389,6 @@ __webpack_require__.r(__webpack_exports__);
         _this.$router.push({
           name: 'not-found'
         });
-
-        _this.loading = false;
       } else {
         console.log('page found');
         _this.post = response.data;
