@@ -15,9 +15,8 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::post('contact-form', function(Request $request){
-    ddd($request->all());
-});
+Route::post('contact-form', 'MessageController@show');
+Route::get('contact-form', 'MessageController@index');
 
 Auth::routes();
 
