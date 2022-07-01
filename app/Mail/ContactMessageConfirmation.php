@@ -10,15 +10,15 @@ use Illuminate\Queue\SerializesModels;
 class ContactMessageConfirmation extends Mailable
 {
     use Queueable, SerializesModels;
-
+    public $message;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($message)
     {
-        //
+        $this->message = $message;
     }
 
     /**
@@ -28,6 +28,8 @@ class ContactMessageConfirmation extends Mailable
      */
     public function build()
     {
-        return $this->markdown('mail.markdown.guest-message-confirmation');
+        return $this
+        ->subject('We recived your message!')
+        ->markdown('mail.markdown.guest-message-confirmation');
     }
 }

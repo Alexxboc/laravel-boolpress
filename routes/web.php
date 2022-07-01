@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+Route::get('contact-form', 'MessageController@index')->name('contact-form');
 Route::post('contact-form', 'MessageController@store');
-Route::get('contact-form', 'MessageController@index');
 
 Auth::routes();
 
@@ -344,7 +344,7 @@ Subject: {{$message->subject}}
 Message: {{$message->message}}
 
 
-- php artisan mek:mail ContactMessageConfirmation --markdown=mail.markdown.guest-message-confirmation
+- php artisan make:mail ContactMessageConfirmation --markdown=mail.markdown.guest-message-confirmation
 
 nella mail ripetere passaggi precedenti
 
