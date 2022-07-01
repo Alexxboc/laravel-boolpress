@@ -11,56 +11,57 @@
       </div>
     </div>
     <div class="content container">
-
-      <form action="/contact-form" method="post">
-        <div class="mb-3">
-          <label for="full_name" class="form-label">Full name</label>
+      <vue-form method="post" action="/contact-form">
+        <div class="mb-3 d-flex flex-column">
+          <label for="" class="form-label">Full Name</label>
           <input
             type="text"
             name="full_name"
             id="full_name"
-            class="form-control"
-            placeholder="mario rossi"
-            aria-describedby="helpId"
+            class="Your Name"
+            placeholder="Mario Rossi"
+            aria-describedby="FullNameHelper"
           />
-          <small id="helpId" class="text-muted">Type your name</small>
+          <small id="FullNameHelper" class="text-muted">type your name</small>
         </div>
 
-        <div class="mb-3">
-          <label for="email" class="form-label">Full name</label>
+        <div class="mb-3 d-flex flex-column">
+          <label for="" class="form-label">Email</label>
           <input
-            type="text"
+            type="email"
             name="email"
             id="email"
-            class="form-control"
-            placeholder="info@"
-            aria-describedby="helpId"
+            class="Your email"
+            placeholder="mariorossi@email.it"
+            aria-describedby="EmailHelper"
           />
-          <small id="helpId" class="text-muted">Type your email</small>
+          <small id="EmailHelper" class="text-muted">type your email</small>
         </div>
 
-        <div class="mb-3">
-          <label for="subject" class="form-label">Subject</label>
+        <div class="mb-3 d-flex flex-column">
+          <label for="" class="form-label">Subject</label>
           <input
             type="text"
             name="subject"
             id="subject"
-            class="form-control"
-            placeholder=""
-            aria-describedby="helpId"
+            class="Your subject"
+            placeholder="Subject"
+            aria-describedby="SubjectHelper"
           />
-          <small id="helpId" class="text-muted">Type your subject</small>
+          <small id="SubjectHelper" class="text-muted">type subject</small>
         </div>
-        <div class="mb-3">
+
+        <div class="mb-3 d-flex flex-column">
           <label for="message" class="form-label">Message</label>
-         <div class="mb-3">
-           <label for="message" class="form-label"></label>
-           <textarea class="form-control" name="message" id="message" rows="3"></textarea>
-         </div>
-          <small id="helpId" class="text-muted">Type your message</small>
+          <textarea
+            class="form-control"
+            name="message"
+            id="message"
+            rows="3"
+          ></textarea>
         </div>
-        <button class="btn btn-primary" type="submit">Submit</button>
-      </form>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </vue-form>
     </div>
   </div>
 </template>
