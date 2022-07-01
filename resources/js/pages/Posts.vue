@@ -168,6 +168,7 @@ export default {
     },
   },
   mounted() {
+
     this.getAllPosts(1);
     this.getAllCategories();
     this.getAllTags();
