@@ -67,7 +67,11 @@
 </template>
 
 <script>
+import VueForm from '../components/VueForm.vue'
 export default {
-  name: "About",
+    name: "Contacts",
+    components: {
+        VueForm
+    }
 };
 </script>
