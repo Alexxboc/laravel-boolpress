@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::post('contact-form', function(Request $request){
+    ddd($request->all());
+});
 
 Auth::routes();
 
@@ -288,6 +293,109 @@ strong Tags: N/A
 </div>
 
 
+GESTIRE FORM CONTATTI
+
+- php artisan make:model Admin/Message -crsm
+- Spostare Message controller in Admin e importare controller e cambiare namespace
+- nel modello Message 
+protected $fillable = ['full_name', 'email', 'subject', 'message']
+
+- nella migrazione:
+$table->string('full_name', 150);
+$table->string('email');
+$table->string('subject')
+$table->text('message')
+
+- php artisan migrate
+
+- Creare altro controller php artisan make:controller MessageController usare modello message
+
+- Puntare al controller metodo store nella rotta
+- Creare metodo store:
+
+$data = $request->all();
+
+$message = Message::create($data);
+
+//return (new AdminContactMessage($message))->render();
+
+Mail::to('boccardi.alessandro@gmail.com')->send(new AdminContactMessage($message));
+Mail::to('$message->email')->send(new ContactMessageConfirmation($message));
+
+
+return redirect()->route('contact-form')->with('message', 'Message recived');
+
+- Creare nuova rotta
+
+Route::get('contact-form', 'MessageController@index');
+
+- php artisan mek:mail AdminContactMessage --markdown=mail.markdown.admim.contact-message
+
+- nella mail Admin
+
+public $message
+passare $message al costrutture
+
+$this->message = $message;
+
+nel build return $this->subject('You recived a new message from the blog')->markdown('mail.markdown.admim.contact-message')
+
+- nel markdown scrivere hai ricevuto un nuovo messaggio da {{$message->full_name}}
+Subject: {{$message->subject}}
+Message: {{$message->message}}
+
+
+- php artisan mek:mail ContactMessageConfirmation --markdown=mail.markdown.guest-message-confirmation
+
+nella mail ripetere passaggi precedenti
+
+- nel template di markdown:
+
+Thanks for writing us, we will get back asap
+
+Name: {{$message->full_name}}
+Email: {{$message->email}}
+
+Il tuo messaggio: <br>
+{{$message->message}}
+
+- nel message controller fare metodo index
+
+return view('guest.message-confirmation');
+
+- creare view i guest message-confirmation.blade.php 
+- estendere layout app
+- fare section content
+
+container 
+@if(session('message'))
+
+h1 {{session('message')}}
+@endif
+
+CREARE SEZIONE MESSAGES PER ADMIN
+
+- Aggiungere link Messages nella dashboard
+
+- php artisan route:list per controllare le rotte
+
+- Creare in admin la view messages 
+
+- creare file index.blade.php
+-estendere layout admin
+
+- mettere section content 
+con h1 messages
+
+- entrare nel controller admin/messagecontroller 
+
+$messages = Message::oredrByDesc('id')->get();
+metodo index return view('admin.messages.index', compact('messages'));
+
+- nella view fare tabella mostrare subject email and full name message
+
+
 
 
 */
+

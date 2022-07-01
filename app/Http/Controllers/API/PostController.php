@@ -22,9 +22,9 @@ class PostController extends Controller
         if($post) {
             return $post;
         } else {
-            response()->json([
+            return response()->json([
                 'status_code' => 404,
-                'status_text' => 'not-found'
+                'status_text' => 'not found'
             ]);
         }
 

@@ -66,7 +66,7 @@ export default {
         axios.get("/api/posts/" + this.$route.params.slug)
             .then(response => {
                 //console.log(response.data)
-                if(response.data.status_code == 404) {
+                if(response.data.status_code === 404) {
                     console.log('404 page not found');
                     this.$router.push({name : 'not-found'});
 
