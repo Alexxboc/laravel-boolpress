@@ -16,9 +16,9 @@ class MessageController extends Controller
 
         $message = Message::create($data);
 
-        return (new AdminContactMessage($message))->render();
+        //return (new AdminContactMessage($message))->render();
 
-        //Mail::to('boccardi.alessandro@gmail.com')->send(new AdminContactMessage($message));
+        Mail::to('boccardi.alessandro@gmail.com')->send(new AdminContactMessage($message));
         //Mail::to('$message->email')->send(new ContactMessageConfirmation($message));
 
         return redirect()->route('contact-form')->with('message', 'Message recived');
