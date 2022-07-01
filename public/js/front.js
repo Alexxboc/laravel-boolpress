@@ -5786,6 +5786,9 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         route_name: 'posts',
         route_text: 'Posts'
+      }, {
+        route_name: 'contacts',
+        route_text: 'Contacts'
       }]
     };
   }
